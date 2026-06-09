@@ -1,19 +1,20 @@
 from openai import OpenAI
+import OpenAI
 
-client = OpenAI() #Insert OpenAI key here
+client = OpenAI()#Insert API Key Here
 
 response = client.chat.completions.create(
     model = 'gpt-4o-mini',
-    messages = [
+    messages=[
         {
             "role": "system",
-            "content": "You are a helpful learning assistant tasked with helping the user understand concepts they ask."
+            "content": "You are a helpful learning assistant that is tasked with helping the user understand the concepts they wish to learn.", #Gives AI context to answer user's prompts and give the basic idea of what the pattern they retain in their memory
         },
         {
             "role": "user",
-            "content": "Teach me the basics of machine learning."
+            "content": "Explain to me the basics of AI.",
         },
     ],
-)
+),
 
 print(response.choices[0].message.content)
